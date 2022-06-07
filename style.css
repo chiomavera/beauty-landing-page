@@ -103,6 +103,31 @@ body{
     background-color: var(--black, #101820); 
 }
 
+hr{
+    width: 50%;
+    margin: auto;
+}
+
+.iframe{
+    padding-top: 100px;
+    margin: auto;
+    width: 600px;
+}
+
+/* about us section */
+.about-us-img-box{
+    background-color: #F6E6CF;
+}
+
+.about-us-img{
+    width: 250px;
+    height: 250px;
+}
+
+.aftercare-img{
+    width: 400px;
+}
+
 @media (min-width: 768px){
     .nav-bar{
         display: flex;
@@ -134,7 +159,7 @@ body{
     .Navbar-toggle{
         display: none;
     }
-/* section cta */
+    /* section cta */
     #cta-section{
         padding-top: 150px;
     }
@@ -142,5 +167,21 @@ body{
     #cta-section > hr{
         width: 100;
     }
+
+    .cta-quote{
+        margin-top: 60px;
+    }
+
+    .cta-heading{
+        margin-top: -5px;
+    }
+    .about-us-img3{
+        width: 23 0px;
+    }
+
+    .aftercare-text{
+        padding-top: 150px;
+    }
 }
+
 

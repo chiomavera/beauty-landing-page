@@ -2,99 +2,227 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beauty | Landing Page</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beauty | Landing Page</title>
 
-    <!-- stylesheet -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <!-- stylesheet -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,300;0,400;0,700;1,100&display=swap"
-        rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,300;0,400;0,700;1,100&display=swap"
+    rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet"
-        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
+  <link rel="stylesheet"
+    href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
 
-    <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-    <!-- navigation -->
-    <nav class="nav-bar">
-        <span class="Navbar-toggle" id="js-Navbar-toggle">
-            <i class="fa-solid fa-bars"></i>
-        </span>
-        <a href="#" class="logo">Beauty</a>
-        <ul class="main-nav" id="js-menu">
-            <li>
-                <a href="#" class="nav-links">Services</a>
-            </li>
-            <li>
-                <a href="#" class="nav-links">Price List</a>
-            </li>
-            <li>
-                <a href="#" class="nav-links">About Us</a>
-            </li>
-            <li>
-                <a href="#" class="nav-links">Contact Us</a>
-            </li>
-        </ul>
-    </nav>
+  <!-- navigation -->
+  <nav class="nav-bar">
+    <span class="Navbar-toggle" id="js-Navbar-toggle">
+      <i class="fa-solid fa-bars"></i>
+    </span>
+    <a href="#" class="logo">Beauty</a>
+    <ul class="main-nav" id="js-menu">
+      <li>
+        <a href="#" class="nav-links">Services</a>
+      </li>
+      <li>
+        <a href="#" class="nav-links">Price List</a>
+      </li>
+      <li>
+        <a href="#" class="nav-links">About Us</a>
+      </li>
+      <li>
+        <a href="#" class="nav-links">Contact Us</a>
+      </li>
+    </ul>
+  </nav>
 
-    <!-- header -->
-    <section class="text-white dark-bg" id="cta-section">
-        <div class="container">
-          <div class="row justify-content-center text-center">
-            <div class="col-sm-12 col-md-4 col-lg-3">
-              <div>
-                <p class="mt-5">
-                  <span class="colored-text">"Everything</span> has beauty but
-                  <span>not everyone sees it"</span>
-                </p>
-                <hr class="text-white">
-                <p>konfusius</p>
-              </div>
+  <!-- header -->
+  <section class="text-white dark-bg" id="cta-section">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-sm-12 col-md-4 col-lg-3 cta-quote">
+          <div>
+            <p>
+              "<span class="colored-text">Everything</span> has beauty but
+              <span>not everyone sees it"</span>
+            </p>
+            <hr class="text-white">
+            <p class="pt-2 colored-text">*<span class="text-white">konfusius</span>*</p>
+          </div>
+        </div>
+
+        <div class="col-sm-8 col-md-6 col-lg-4">
+          <div class="cta-img-container">
+            <img class="cta-img" src="images\cta-image.png" alt="cta-image" />
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-12 col-lg-5">
+          <div>
+            <h1 class="cta-heading">
+              Make your look even
+              <span class="colored-text">More perfect</span> with our
+              Treatments.
+            </h1>
+            <p class="text-light cta-para">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br />
+              Facere libero Lorem ipsum dolor sit amet consectetur.
+            </p>
+
+            <button type="button" class="mb-5 btn btn-outline-light btn-lg">Book Appointment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="services" class="bg-white dark-bg">
+    <div class="container text-center pt-5 services-container">
+      <div class="row justify-content-center">
+        <div class="col-lg-3 col-md-3 col-sm-8 m-3 card p-5">
+          <div class="icon-box">
+            <img src="https://img.icons8.com/bubbles/50/000000/long-hair-girl-trophy.png" />
+            <img src="https://img.icons8.com/bubbles/50/000000/barbershop.png" />
+            <p class="icon-text">Hair Care</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-8 m-3 card p-5">
+          <div class="icon-box">
+            <img src="https://img.icons8.com/bubbles/50/000000/straight-razor.png" />
+            <img src="https://img.icons8.com/bubbles/50/000000/electric-shaver--v1.png" />
+            <p>Hair Removal</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-8 m-3 card p-5">
+          <div class="icon-box">
+            <img src="https://img.icons8.com/bubbles/50/000000/aroma.png" />
+            <img src="https://img.icons8.com/bubbles/50/undefined/bathrobe.png" />
+            <p>Spa Date</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-3 col-md-3 col-sm-8 card p-5 m-3">
+          <div class="icon-box">
+            <img src="https://img.icons8.com/bubbles/50/000000/lipstick.png" />
+            <img src="https://img.icons8.com/bubbles/50/000000/smiling-mouth.png" />
+            <p>Lip Care</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-8 m-3 card p-5 dark-bg text-white">
+          <div class="icon-box">
+            <img src="https://img.icons8.com/bubbles/50/000000/bride.png" />
+            <img src="https://img.icons8.com/bubbles/50/000000/dressing-table.png" />
+            <p>Makeup</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-8 m-3 card p-5">
+          <div class="icon-box">
+            <img src="https://img.icons8.com/bubbles/50/000000/eyelash.png" />
+            <img src="https://img.icons8.com/bubbles/50/000000/sleepy-eyes.png" />
+            <p>Eyes Care</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="bg-white">
+    <div class="container">
+      <div class="iframe">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/l-M6MpkS3pY" title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+    </div>
+  </section> -->
+
+  <section id="aftercare" class="bg-white">
+    <div class="container pt-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-4">
+          <p class="colored-text fw-bold">AFTERCARE</p>
+          <h3 class="fw-bold">Permanent Makeup <br> Aftercare</h3>
+          <div>
+            <img class="aftercare-img" src="images\aftercare-img.png" alt="aftercare-img">
+          </div>
+        </div>
+        <div class="col-lg-6 aftercare-text">
+          <div class="d-flex">
+            <div>
+              <p class="fw-bold">lips</p>
+              <p class="pe-4">Avoid direct contact with toothpaste and mouthwash as it contains bleaching agents. Eat
+                carefully and
+                drink through straw for first 24hrs. </p>
             </div>
-    
-            <div class="col-sm-8 col-md-6 col-lg-4">
-              <div class="cta-img-container">
-                <img class="cta-img" src="images\cta-image.png" alt="cta-image" />
-              </div>
+            <div>
+              <p class="fw-bold">Eyebrows</p>
+              <p>No water, cleansers, cream, makeup or any other products on treated area for 10days. for the first day
+                only 4-5 hours after procedure</p>
             </div>
-    
-            <div class="col-sm-12 col-md-12 col-lg-5">
-              <div>
-                <h1 class="cta-heading">
-                  Make your look even
-                  <span class="colored-text">More perfect</span> with our
-                  Treatments.
-                </h1>
-                <p class="text-light cta-para">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br />
-                  Facere libero Lorem ipsum dolor sit amet consectetur.
-                </p>
-              </div>
+          </div>
+          <div class="d-flex">
+            <div>
+              <p class="fw-bold">lips</p>
+              <p class="pe-4">Avoid direct contact with toothpaste and mouthwash as it contains bleaching agents. Eat
+                carefully and
+                drink through straw for first 24hrs. </p>
+            </div>
+            <div>
+              <p class="fw-bold">Eyebrows</p>
+              <p>No water, cleansers, cream, makeup or any other products on treated area for 10days. for the first day
+                only 4-5 hours after procedure</p>
             </div>
           </div>
         </div>
-      </section>
-    <!-- script -->
-    <script src="https://kit.fontawesome.com/47ff7ea1ff.js" crossorigin="anonymous"></script>
+      </div>
+  </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-        crossorigin="anonymous"></script>
+  <section class="dark-bg">
+    <div class="container text-center justify-content-center">
+      <p class="colored-text fw-bold pt-5">ABOUT US</p>
+      <h3 class="text-white fw-bold mb-5">With a Successful Career <br> In The Beauty Industry</h3>
+      <div class="row justify-content-center">
+        <div class="col-lg-3 col-md-6 col-sm-6 about-us-img-box me-3">
+          <img class="about-us-img" src="images\aboutus-img2.png" alt="about us image">
+        </div>
+        <div class="col-lg-3 col-md-5 col-sm-5 about-us-img-box me-3">
+          <img class="about-us-img" src="images\aboutus-img.png" alt="about us image">
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 about-us-img-box">
+          <img class="about-us-img about-us-img3" src="images\abouts-img1.png" alt="about us image">
+        </div>
+      </div>
+      <p class="colored-text mt-3 fw-bold">JANE ROCKIE</p>
+      <p class="text-white">Founder & Owner</p>
+    </div>
+  </section>
+  <!-- script -->
+  <script src="https://kit.fontawesome.com/47ff7ea1ff.js" crossorigin="anonymous"></script>
 
-    <script src="script.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+
+  <script src="script.js" defer></script>
 </body>
 
 </html>
