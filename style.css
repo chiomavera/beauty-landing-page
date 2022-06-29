@@ -6,9 +6,13 @@
 }
 
 body{
-    font-family: 'Josefin Sans', sans-serif;   
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #101820;   
 }
 
+ol{
+    list-style-type: circle;
+}
 /* navigation */
 .nav-bar{
     background-color: var(--black, #101820); 
@@ -108,24 +112,57 @@ hr{
     margin: auto;
 }
 
-.iframe{
+/* .iframe{
     padding-top: 100px;
     margin: auto;
     width: 600px;
-}
+} */
 
 /* about us section */
-.about-us-img-box{
-    background-color: #F6E6CF;
+.about-us-img-box, 
+.pricing-img-box{
+    background-color: #F4DCBE;
 }
 
 .about-us-img{
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
 }
 
 .aftercare-img{
     width: 400px;
+}
+
+.days-of-operation{
+    background-color: #fff;
+    flex-direction: row;
+}
+
+.pricing-img-box{
+    width: 500px;
+}
+
+
+.pricing-container{
+    padding-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+}
+
+.pricing-card{
+    padding: 20px;
+    margin-right: 10px;
+}
+
+.pricing-card-box{
+    margin-right: 10px;
+}
+
+.pricing-icons{
+    display: flex;
+    align-self: center;
+    width: 50px;
 }
 
 @media (min-width: 768px){
