@@ -10,6 +10,10 @@ body{
     background-color: #101820;   
 }
 
+a{
+    color: #fff;
+}
+
 ol{
     list-style-type: circle;
 }
@@ -163,6 +167,20 @@ hr{
     display: flex;
     align-self: center;
     width: 50px;
+}
+
+input{
+    padding: 10px;
+    border-radius: 10px;  
+    border: 0.5px black solid;
+}
+
+.email-field{
+    width: 450px;
+}
+
+.input-submit{
+    width: 200px;
 }
 
 @media (min-width: 768px){
