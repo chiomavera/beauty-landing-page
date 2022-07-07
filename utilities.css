@@ -1,0 +1,26 @@
+.grid{
+    display: grid;
+}
+.grid-3{
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.flex{
+    display: flex;
+}
+
+.grid-2{
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.small{
+    font-size: small;
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+}
