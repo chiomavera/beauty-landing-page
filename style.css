@@ -77,14 +77,19 @@ a{
     display: block;
 }
 
+.colored-text{
+    color: var(--brown, #B8785A);
+}
+
+.dark-bg{
+    background-color: var(--black, #101820); 
+}
+
+
 /* section cta-display */
 #cta-section{
     padding-top: 70px;
 }
-
-/* .cta-img{
-    max-width: 350px;
-} */
 
 .cta-img-container{
     max-width: 400px;
@@ -100,12 +105,13 @@ a{
     font-size: 0.85rem;
 }
 
-.colored-text{
-    color: var(--brown, #B8785A);
+#cta-section > hr{
+    width: 100;
 }
 
-.dark-bg{
-    background-color: var(--black, #101820); 
+/* services section */
+.services-icons{
+    width: 50px;
 }
 
 hr{
@@ -124,21 +130,10 @@ hr{
     width: 500px;
 }
 
-.days-of-operation{
-    background-color: #fff;
-    flex-direction: row;
-}
 
+/* pricing section */
 .pricing-img-box{
     width: 500px;
-}
-
-
-.pricing-container{
-    padding-top: 100px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
 }
 
 .pricing-card{
@@ -157,9 +152,6 @@ hr{
     width: 50px;
 }
 
-.services-icons{
-    width: 50px;
-}
 
 input{
     padding: 10px;
@@ -174,6 +166,8 @@ input{
 .input-submit{
     width: 200px;
 }
+
+
 
 @media (min-width: 768px){
     .nav-bar{
@@ -211,10 +205,6 @@ input{
         padding-top: 150px;
     }
 
-    #cta-section > hr{
-        width: 100;
-    }
-
     .cta-quote{
         margin-top: 60px;
     }
@@ -223,12 +213,20 @@ input{
         margin-top: -5px;
     }
 
-    /* .about-us-img3{
-        width: 23 0px;
-    } */
-
     .aftercare-text{
         padding-top: 150px;
+    }
+
+    .pricing-container{
+        padding-top: 100px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+    }
+
+    .days-of-operation{
+        background-color: #fff;
+        flex-direction: row;
     }
 }
 
