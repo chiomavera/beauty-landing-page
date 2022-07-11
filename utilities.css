@@ -24,3 +24,7 @@ ul{
 a{
     text-decoration: none;
 }
+
+ol{
+    list-style-type: circle;
+}

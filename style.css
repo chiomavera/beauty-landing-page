@@ -14,9 +14,6 @@ a{
     color: #fff;
 }
 
-ol{
-    list-style-type: circle;
-}
 /* navigation */
 .nav-bar{
     background-color: var(--black, #101820); 
@@ -85,9 +82,9 @@ ol{
     padding-top: 70px;
 }
 
-.cta-img{
+/* .cta-img{
     max-width: 350px;
-}
+} */
 
 .cta-img-container{
     max-width: 400px;
@@ -116,25 +113,15 @@ hr{
     margin: auto;
 }
 
-/* .iframe{
-    padding-top: 100px;
-    margin: auto;
-    width: 600px;
-} */
-
 /* about us section */
 .about-us-img-box, 
 .pricing-img-box{
     background-color: #F4DCBE;
 }
 
-.about-us-img{
-    width: 300px;
-    height: 300px;
-}
-
-.aftercare-img{
-    width: 400px;
+.about-us-img1, 
+.about-us-img2{
+    width: 500px;
 }
 
 .days-of-operation{
@@ -163,9 +150,14 @@ hr{
     margin-right: 10px;
 }
 
+
 .pricing-icons{
     display: flex;
     align-self: center;
+    width: 50px;
+}
+
+.services-icons{
     width: 50px;
 }
 
@@ -230,9 +222,10 @@ input{
     .cta-heading{
         margin-top: -5px;
     }
-    .about-us-img3{
+
+    /* .about-us-img3{
         width: 23 0px;
-    }
+    } */
 
     .aftercare-text{
         padding-top: 150px;
