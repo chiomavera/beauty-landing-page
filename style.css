@@ -5,6 +5,10 @@
 
 }
 
+*{
+    overflow-x: hidden;
+}
+
 body{
     font-family: 'Josefin Sans', sans-serif;
     background-color: #101820;   
@@ -86,7 +90,6 @@ a{
 }
 
 
-/* section cta-display */
 #cta-section{
     padding-top: 70px;
 }
@@ -109,7 +112,6 @@ a{
     width: 100;
 }
 
-/* services section */
 .services-icons{
     width: 50px;
 }
@@ -119,30 +121,21 @@ hr{
     margin: auto;
 }
 
-/* about us section */
 .about-us-img-box, 
 .pricing-img-box{
     background-color: #F4DCBE;
 }
 
-.about-us-img1, 
-.about-us-img2{
-    width: 500px;
-}
-
-
-/* pricing section */
-.pricing-img-box{
-    width: 500px;
-}
 
 .pricing-card{
-    padding: 20px;
-    margin-right: 10px;
+    padding: 50px;
+    margin-bottom: 10px;
 }
 
 .pricing-card-box{
-    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+   width: 100%;
 }
 
 
@@ -152,6 +145,9 @@ hr{
     width: 50px;
 }
 
+.customer-img{
+    margin-bottom: 10px;
+}
 
 input{
     padding: 10px;
@@ -159,14 +155,21 @@ input{
     border: 0.5px black solid;
 }
 
-.email-field{
-    width: 450px;
+.days-of-operation{
+    flex-direction: column;
+   text-align: center;
 }
 
-.input-submit{
-    width: 200px;
+footer  a:hover{
+    color: #B8785A;
 }
 
+@media (min-width: 500px){
+    .days-of-operation{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
 
 
 @media (min-width: 768px){
@@ -200,7 +203,7 @@ input{
     .Navbar-toggle{
         display: none;
     }
-    /* section cta */
+  
     #cta-section{
         padding-top: 150px;
     }
@@ -216,18 +219,24 @@ input{
     .aftercare-text{
         padding-top: 150px;
     }
-
-    .pricing-container{
-        padding-top: 100px;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        justify-content: center;
-    }
-
+    
     .days-of-operation{
         background-color: #fff;
+        display: flex;
         flex-direction: row;
     }
+
+    .pricing-card{
+        margin-right: 10px;
+    }
+
+    .pricing-card-box{
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .pricing-img{
+        width: 100%;
+    }
+
 }
-
-
