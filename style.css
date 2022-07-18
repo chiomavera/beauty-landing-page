@@ -164,10 +164,18 @@ footer  a:hover{
     color: #B8785A;
 }
 
+.subscribe-button{
+    padding: 10px;
+}
+
 @media (min-width: 500px){
     .days-of-operation{
         display: grid;
         grid-template-columns: repeat(2, 1fr); 
+    }
+
+    .email-field{
+        width: 400px;
     }
 }
 
@@ -239,4 +247,24 @@ footer  a:hover{
         width: 100%;
     }
 
+    footer ul{
+        display: flex;
+    }
+
+    footer li{
+        margin: 10px;
+    }
+    
+    .cta2-box{
+        display: flex;
+        justify-content: center;
+    }
+
+    .subscribe-button{
+        margin-left: 10px;
+        padding: 10px;
+    }
 }
+
+/* @media (min-width: 990px) {
+} */
