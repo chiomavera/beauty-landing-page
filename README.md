@@ -1,5 +1,5 @@
 # Beauty-landing
-this is a landing page for a beauty salon.
+This is a landing page for a beauty salon.
 
 This work is been developed with the use of html, css, bootstrap and JavaScript. 
 
