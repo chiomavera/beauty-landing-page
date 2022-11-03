@@ -89,7 +89,6 @@ a{
     background-color: var(--black, #101820); 
 }
 
-
 #cta-section{
     padding-top: 70px;
 }
@@ -125,8 +124,6 @@ hr{
 .pricing-img-box{
     background-color: #F4DCBE;
 }
-
-
 .pricing-card{
     padding: 50px;
     margin-bottom: 10px;
@@ -137,7 +134,6 @@ hr{
     flex-direction: column;
    width: 100%;
 }
-
 
 .pricing-icons{
     display: flex;
@@ -167,6 +163,7 @@ footer  a:hover{
 .subscribe-button{
     padding: 10px;
 }
+
 
 @media (min-width: 500px){
     .days-of-operation{
@@ -244,7 +241,7 @@ footer  a:hover{
     }
     
     .pricing-img{
-        width: 100%;
+        width: 100%; 
     }
 
     footer ul{
@@ -265,6 +262,3 @@ footer  a:hover{
         padding: 10px;
     }
 }
-
-/* @media (min-width: 990px) {
-} */
