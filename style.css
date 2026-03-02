@@ -1,18 +1,19 @@
 :root {
   /* ===== Brand Colors (Preserved & Refined) ===== */
-  --bg: #101820;                 
-  --bg-elevated: #161f2a;        
+  --bg: #101820;
+  --bg-elevated: #161f2a;
   --border: rgba(255, 255, 255, 0.08);
 
   --text-primary: #eeeeee;
   --text-secondary: rgba(238, 238, 238, 0.7);
 
-  --accent: #b8785a;             
-  --accent-hover: #ae5a34;       
+  --accent: #b8785a;
+  --accent-hover: #ae5a34;
 
   /* ===== Typography ===== */
-  --font-base: system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-base:
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
 
   --fs-sm: 0.875rem;
   --fs-base: 1rem;
@@ -86,7 +87,6 @@ a:focus-visible {
   box-shadow: none;
 }
 
-
 button {
   font-family: inherit;
   background: none;
@@ -158,6 +158,7 @@ p {
 ========================= */
 
 .btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -179,7 +180,23 @@ p {
   color: white;
 }
 
-.btn-primary:hover {
+/* .btn-primary:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-1px);
+} */
+
+/* ===== Disabled Button State ===== */
+.btn-primary:disabled {
+  background-color: rgba(184, 120, 90, 0.4);
+  color: rgba(255, 255, 255, 0.7);
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Hover only when enabled */
+.btn-primary:not(:disabled):hover {
   background-color: var(--accent-hover);
   transform: translateY(-1px);
 }
@@ -216,7 +233,6 @@ p {
   overflow: hidden;
   clip: rect(0 0 0 0);
 }
-
 
 /* =========================
    Section Header
@@ -294,7 +310,6 @@ section {
   margin-top: var(--space-2);
 }
 
-
 /* =========================
    Navigation
 ========================= */
@@ -325,7 +340,7 @@ section {
 /* Links */
 .nav-links {
   display: flex;
-  align-items: center;          /* vertical centering */
+  align-items: center; /* vertical centering */
   gap: var(--space-4);
   list-style: none;
   margin: 0;
@@ -335,7 +350,6 @@ section {
 .nav-links .btn {
   padding-block: 0.6rem;
 }
-
 
 .nav-links a {
   position: relative;
@@ -367,7 +381,6 @@ section {
   transform-origin: left;
 }
 
-
 /* CTA */
 .nav-cta {
   display: flex;
@@ -385,7 +398,7 @@ section {
 
 @media (max-width: 768px) {
   .nav-links {
-    display: none; 
+    display: none;
   }
 
   .nav-links.open {
@@ -401,7 +414,7 @@ section {
     border-bottom: 1px solid var(--border);
   }
 
-   .nav-toggle {
+  .nav-toggle {
     display: block;
   }
 }
@@ -412,7 +425,7 @@ section {
 
 .hero {
   position: relative;
-  min-height: calc(100svh - 72px); 
+  min-height: calc(100svh - 72px);
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -423,10 +436,9 @@ section {
   padding-block: clamp(3rem, 6vh, 5rem);
 }
 
-
 /* Content */
 .hero-content {
-  max-width: 520px; 
+  max-width: 520px;
   --flow-space: 1.25rem;
 }
 
@@ -440,7 +452,6 @@ section {
 .hero-title-lead {
   letter-spacing: -0.01em;
 }
-
 
 .hero-title span {
   color: var(--accent);
@@ -464,7 +475,7 @@ section {
   flex-wrap: wrap;
 }
 
-  /* Background image */
+/* Background image */
 .hero--bg {
   background-image:
     linear-gradient(
@@ -475,13 +486,12 @@ section {
       rgba(16, 24, 32, 0.25) 85%,
       rgba(16, 24, 32, 0.15) 100%
     ),
-    url("images/cta-image.png");
+    url("assets/hero-bg.png");
 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right center;
 }
-
 
 /* Keep content above overlay */
 .hero--bg .container {
@@ -502,7 +512,6 @@ section {
     background-position: center;
   }
 }
-
 
 /* =========================
    Mobile adjustments
@@ -547,7 +556,7 @@ section {
 
   text-align: center;
 
-    cursor: pointer;
+  cursor: pointer;
 
   transition:
     transform 0.2s ease,
@@ -565,7 +574,6 @@ section {
   /* margin-bottom: var(--space-2); */
 }
 
-
 /* Hover */
 .service-card:hover {
   transform: translateY(-4px);
@@ -576,12 +584,9 @@ section {
   color: var(--accent);
 }
 
-
 /* =========================
    Proof / Gallery
 ========================= */
-
-
 
 .gallery-item {
   position: relative;
@@ -616,7 +621,9 @@ section {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: var(--space-5);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 /* Emphasize price as visual anchor */
@@ -701,43 +708,242 @@ section {
   max-width: 52ch;
 }
 
-
 /* =========================
   Booking
 ========================= */
+/* Layout */
+
+.booking-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .booking-form {
   display: grid;
-  gap: var(--space-4);
-  max-width: 480px;
+  gap: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.booking-form label {
-  font-size: var(--fs-sm);
-  font-weight: 500;
+/* Group wrapper */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Labels */
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
   color: var(--text-primary);
+  letter-spacing: 0.3px;
 }
 
+/* Inputs + Selects */
 .booking-form input,
 .booking-form select {
-  padding: 0.75rem 1rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border);
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+
+  font-size: 1rem;
+  font-family: inherit;
+
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
   background-color: var(--bg-elevated);
   color: var(--text-primary);
-  font-size: var(--fs-base);
+
+  transition: 
+    border 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
 }
 
+/* Prevent iOS zoom */
+@media (max-width: 768px) {
+  .booking-form input,
+  .booking-form select {
+    font-size: 16px;
+  }
+}
+
+/* Focus State */
 .booking-form input:focus,
 .booking-form select:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(184, 120, 90, 0.2);
+}
+
+/* Placeholder */
+.booking-form input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+/* ====================
+   Validation Styling
+==================== */
+
+/* Invalid */
+input.invalid,
+select.invalid {
+  border-color: #e63946;
+  background-color: rgba(230, 57, 70, 0.06);
+}
+
+/* Valid */
+input.valid,
+select.valid {
+  border-color: #2a9d8f;
+}
+
+/* Error message */
+.error-message {
+  font-size: 0.85rem;
+  color: #e63946;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.2s ease, margin-top 0.2s ease;
+}
+
+.error-message.active {
+  height: auto;
+  margin-top: 4px;
+}
+
+/* ====================
+   Button Styling
+==================== */
+
+.booking-form .btn {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+/* Hover only when enabled */
+.btn-primary:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+/* Disabled */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ====================
+   Section Card Style
+==================== */
+
+#booking .container {
+  background: var(--bg-elevated);
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+/* ====================
+   Mobile Improvements
+==================== */
+
+@media (max-width: 768px) {
+  #booking .container {
+    padding: 2rem 1.25rem;
+  }
+
+  .booking-form {
+    gap: 1.25rem;
+  }
+}
+
+/* ====================
+   Button Loading State
+==================== */
+
+/* Spinner */
+.btn-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Optional subtle loading style */
+.btn.loading {
+  opacity: 0.85;
+  cursor: not-allowed;
 }
 
 
 /* =========================
+   Toast Styling
+========================= */
+#booking-confirmation {
+  position: fixed;
+  top: 20px;           
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 90%;      
+  width: 400px;        
+  padding: 12px 20px;
+  background-color: #4caf50; 
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 0.95rem;
+  z-index: 9999;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  transform: translate(-50%, -50px); /* start slightly above */
+}
+
+/* Toast types */
+#booking-confirmation.success { background-color: #4caf50; }
+#booking-confirmation.error   { background-color: #f44336; }
+
+/* Show toast */
+#booking-confirmation.show {
+  opacity: 1;
+  transform: translate(-50%, 0); /* slide down */
+}
+
+/* Mobile tweaks */
+@media (max-width: 360px) {
+  #booking-confirmation {
+    font-size: 0.85rem;
+    padding: 10px 14px;
+  }
+}
+/* =========================
    Closing CTA
 ========================= */
-.closing-cta .section-header{
+.closing-cta .section-header {
   margin-bottom: var(--space-4);
 }
 .closing-cta .cta-actions {
@@ -818,4 +1024,3 @@ section {
     gap: var(--space-4);
   }
 }
-
