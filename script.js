@@ -5,67 +5,98 @@ const supabase = createClient(
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxsbXdjcWl2eXVxeXRidHFjYW96Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAxMjE0NzMsImV4cCI6MjA4NTY5NzQ3M30.4UBQ8aPfdTylIyjWUjr7rn2xvcRmpizd1elxxmjGMVk",
 );
 
-  // ====== NAVIGATION ==============
-  const toggle = document.querySelector(".nav-toggle");
-  const menu = document.querySelector("#nav-menu");
+// ====== NAVIGATION ==============
+const toggle = document.querySelector(".nav-toggle");
+const menu = document.querySelector("#nav-menu");
 
+if (toggle && menu) {
   toggle.addEventListener("click", () => {
     const isOpen = menu.classList.toggle("open");
     toggle.setAttribute("aria-expanded", isOpen);
   });
+}
 
-    // ====== BOOKING SYSTEM ==============
-  const bookingForm = document.querySelector("#booking-form");
+// ====== BOOKING SYSTEM ==============
+const bookingForm = document.querySelector("#booking-form");
+
+if (bookingForm) {
   const submitButton = bookingForm.querySelector("button[type='submit']");
   const btnText = submitButton.querySelector(".btn-text");
   const btnSpinner = submitButton.querySelector(".btn-spinner");
+
   const fields = bookingForm.querySelectorAll("input, select");
 
-  // Track which fields the user has interacted with
-  const touchedFields = new Set();
+  const dateInput = document.querySelector("#date");
+  const timeInput = document.querySelector("#time");
 
-  // Mark field as touched on blur, then validate it
-  fields.forEach((field) => {
-    field.addEventListener("blur", () => {
-      touchedFields.add(field.id);
-      validateField(field);
-      updateSubmitButton();
-    });
-  });
-
-  // On input/change: update button state + re-validate only touched fields
-  bookingForm.addEventListener("input", () => {
-    validateTouchedFields();
-    updateSubmitButton();
-  });
-  bookingForm.addEventListener("change", () => {
-    validateTouchedFields();
-    updateSubmitButton();
-  });
-
-  // Enable/disable submit button based on overall form validity
-  function updateSubmitButton() {
-    submitButton.disabled = !bookingForm.checkValidity();
+  // =============================
+  // SET MINIMUM DATE (TODAY)
+  // =============================
+  function setMinDate() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    dateInput.min = today.toISOString().split("T")[0];
   }
 
-  // Validate a single field and show/hide its error
+  setMinDate();
+
+  // =============================
+  // VALIDATION LOGIC
+  // =============================
+
+  // --- Date & Time Validation ---
+  function validateDateTime() {
+    dateInput.setCustomValidity("");
+    timeInput.setCustomValidity("");
+
+    const dateValue = dateInput.value;
+    const timeValue = timeInput.value;
+
+    if (!dateValue) return;
+
+    const now = new Date();
+
+    const selectedDate = new Date(dateValue);
+    selectedDate.setHours(0, 0, 0, 0);
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    // Block past date
+    if (selectedDate < today) {
+      dateInput.setCustomValidity("You cannot book a past date.");
+      return;
+    }
+
+    // Block past time if booking today
+    if (selectedDate.getTime() === today.getTime() && timeValue) {
+      const [hours, minutes] = timeValue.split(":").map(Number);
+
+      const selectedDateTime = new Date(dateValue);
+      selectedDateTime.setHours(hours, minutes, 0, 0);
+
+      if (selectedDateTime <= now) {
+        timeInput.setCustomValidity("This time has already passed.");
+      }
+    }
+  }
+
+  // --- Single Field Validation ---
   function validateField(field) {
     const errorElement = document.querySelector(`#${field.id}-error`);
+
+    // Run custom date/time validation first
+    if (field.id === "date" || field.id === "time") {
+      validateDateTime();
+    }
 
     if (!field.checkValidity()) {
       field.classList.add("invalid");
       field.classList.remove("valid");
 
       if (errorElement) {
-        if (field.validity.valueMissing) {
-          errorElement.textContent = "This field is required.";
-        } else if (field.validity.tooShort) {
-          errorElement.textContent = `Must be at least ${field.minLength} characters.`;
-        } else if (field.validity.typeMismatch) {
-          errorElement.textContent = "Enter a valid email address.";
-        } else {
-          errorElement.textContent = "Please enter a valid value.";
-        }
+        errorElement.textContent =
+          field.validationMessage || "Please enter a valid value.";
         errorElement.classList.add("active");
       }
     } else {
@@ -79,34 +110,51 @@ const supabase = createClient(
     }
   }
 
-  // Only validate fields the user has already interacted with
-  function validateTouchedFields() {
-    fields.forEach((field) => {
-      if (touchedFields.has(field.id)) {
-        validateField(field);
-      }
-    });
+  // --- Submit Button State ---
+  function updateSubmitButton() {
+    submitButton.disabled = !bookingForm.checkValidity();
   }
 
-  // Validate ALL fields (used on submit attempt)
-  function validateAllFields() {
-    fields.forEach((field) => {
-      touchedFields.add(field.id); // mark everything as touched
+  // =============================
+  // EVENT LISTENERS
+  // =============================
+
+  // Validate when user leaves a field
+  fields.forEach((field) => {
+    field.addEventListener("blur", () => {
       validateField(field);
+      updateSubmitButton();
     });
-  }
+  });
 
-  // ======= Reusable Toast Function =======
+  // Validate immediately on change (important for date/time)
+  bookingForm.addEventListener("change", (e) => {
+    validateField(e.target);
+    updateSubmitButton();
+  });
+
+  // Update button state while typing
+  bookingForm.addEventListener("input", (e) => {
+    // Only validate touched fields to avoid annoying errors while typing
+    if (e.target.classList.contains("valid") || e.target.classList.contains("invalid")) {
+      validateField(e.target);
+    }
+    updateSubmitButton();
+  });
+
+  // =============================
+  // TOAST NOTIFICATION
+  // =============================
   function showToast(message, type = "success") {
     const toast = document.querySelector("#booking-confirmation");
+    if (!toast) return;
+
     toast.textContent = message;
     toast.classList.remove("hidden", "success", "error", "show");
     toast.classList.add(type);
 
     requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        toast.classList.add("show");
-      });
+      toast.classList.add("show");
     });
 
     setTimeout(() => {
@@ -114,47 +162,68 @@ const supabase = createClient(
     }, 4000);
   }
 
-  // ===== Submit =========
+  // =============================
+  // FORM SUBMISSION
+  // =============================
+  let isSubmitting = false;
+
   bookingForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    if (!bookingForm.checkValidity()) {
-      validateAllFields();
-      return;
-    }
-
-    // Start Loading State
-    submitButton.disabled = true;
-    submitButton.classList.add("loading");
-    btnText.textContent = "Processing...";
-    btnSpinner.classList.remove("hidden");
-
-    const formData = Object.fromEntries(new FormData(bookingForm));
+    if (isSubmitting) return; // Prevent double-submission
+    isSubmitting = true;
 
     try {
-      const { error } = await supabase.from("bookings").insert([formData]);
-      if (error) throw error;
+      validateDateTime();
 
-      bookingForm.reset();
-      touchedFields.clear();
-      fields.forEach((field) => {
-        field.classList.remove("valid", "invalid");
-      });
-
-      showToast("Booking successful!", "success");
-    } catch (err) {
-      console.error(err);
-      if (err.message.includes("unique_booking_slot")) {
-        showToast("This time slot is already booked. Please choose another time.", "error");
-      } else {
-        showToast("Booking failed. Please try again.", "error");
+      if (!bookingForm.checkValidity()) {
+        fields.forEach((field) => validateField(field));
+        return;
       }
-    }
 
-    // End Loading State
-    btnText.textContent = "Book Appointment";
-    btnSpinner.classList.add("hidden");
-    submitButton.classList.remove("loading");
-    // Keep disabled after reset (form is empty again)
-    submitButton.disabled = true;
+      // Loading state
+      submitButton.disabled = true;
+      submitButton.classList.add("loading");
+      btnText.textContent = "Processing...";
+      btnSpinner.classList.remove("hidden");
+
+      const formData = Object.fromEntries(new FormData(bookingForm));
+
+      try {
+        const { error } = await supabase.from("bookings").insert([formData]);
+
+        if (error) throw error;
+
+        bookingForm.reset();
+        setMinDate();
+
+        fields.forEach((field) => {
+          field.classList.remove("valid", "invalid");
+        });
+
+        showToast("Booking successful!", "success");
+      } catch (err) {
+        console.error(err);
+
+        if (err.message.includes("unique_booking_slot")) {
+          showToast(
+            "This time slot is already booked. Please choose another time.",
+            "error"
+          );
+        } else if (err.message.includes("booking_not_in_past")) {
+          showToast("You cannot book a past date.", "error");
+        } else {
+          showToast("Booking failed. Please try again.", "error");
+        }
+      }
+
+      // Reset button
+      btnText.textContent = "Book Appointment";
+      btnSpinner.classList.add("hidden");
+      submitButton.classList.remove("loading");
+      updateSubmitButton();
+    } finally {
+      isSubmitting = false;
+    }
   });
+}
