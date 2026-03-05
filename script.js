@@ -6,20 +6,27 @@ const supabase = createClient(
 );
 
 // ====== NAVIGATION ==============
-const toggle = document.querySelector(".nav-toggle");
-const menu = document.querySelector("#nav-menu");
+initNavigation();
+initBookingForm();
 
-if (toggle && menu) {
-  toggle.addEventListener("click", () => {
-    const isOpen = menu.classList.toggle("open");
-    toggle.setAttribute("aria-expanded", isOpen);
-  });
+function initNavigation() {
+  const toggle = document.querySelector(".nav-toggle");
+  const menu = document.querySelector("#nav-menu");
+
+  if (toggle && menu) {
+    toggle.addEventListener("click", () => {
+      const isOpen = menu.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", isOpen);
+    });
+  }
 }
 
 // ====== BOOKING SYSTEM ==============
-const bookingForm = document.querySelector("#booking-form");
+function initBookingForm() {
+  const bookingForm = document.querySelector("#booking-form");
 
-if (bookingForm) {
+  if (!bookingForm) return;
+
   const submitButton = bookingForm.querySelector("button[type='submit']");
   const btnText = submitButton.querySelector(".btn-text");
   const btnSpinner = submitButton.querySelector(".btn-spinner");
@@ -136,7 +143,10 @@ if (bookingForm) {
   // Update button state while typing
   bookingForm.addEventListener("input", (e) => {
     // Only validate touched fields to avoid annoying errors while typing
-    if (e.target.classList.contains("valid") || e.target.classList.contains("invalid")) {
+    if (
+      e.target.classList.contains("valid") ||
+      e.target.classList.contains("invalid")
+    ) {
       validateField(e.target);
     }
     updateSubmitButton();
@@ -208,7 +218,7 @@ if (bookingForm) {
         if (err.message.includes("unique_booking_slot")) {
           showToast(
             "This time slot is already booked. Please choose another time.",
-            "error"
+            "error",
           );
         } else if (err.message.includes("booking_not_in_past")) {
           showToast("You cannot book a past date.", "error");
