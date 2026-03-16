@@ -1,4 +1,5 @@
 export function validateBooking(data) {
+  // data is an object that contains the form data, which we will validate against our defined rules. The function will return an object containing any validation errors found.
   const errors = {};
 
   // Name validation
@@ -48,11 +49,12 @@ export function validateBooking(data) {
   // Combined date/time validation
   if (data.date && data.time) {
     const now = new Date();
+    now.setSeconds(0, 0); // Ignore seconds/milliseconds for comparison
     const [h, m] = data.time.split(":").map(Number);
-    const selectedDateTime = new Date(data.date);
-    selectedDateTime.setHours(h, m, 0, 0);
+    const [y, mon, d] = data.date.split("-").map(Number);
+    const selectedDateTime = new Date(y, mon - 1, d, h, m);
 
-    if (selectedDateTime <= now) {
+    if (selectedDateTime < now) {
       errors.time = "This time has already passed.";
     }
   }
@@ -63,5 +65,5 @@ export function validateBooking(data) {
 // Check if form is valid without showing errors
 export function isFormValid(data) {
   const errors = validateBooking(data);
-  return Object.keys(errors).length === 0;
+  return Object.keys(errors).length === 0;// This function calls validateBooking to get any errors for the provided data. It then checks if the errors object is empty by checking if the number of keys in the errors object is zero. If there are no errors, it returns true, indicating that the form is valid. If there are any errors, it returns false, indicating that the form is not valid. This function is useful for enabling or disabling the submit button based on whether the form data meets the validation criteria without showing error messages to the user.
 }
