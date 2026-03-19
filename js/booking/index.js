@@ -21,6 +21,7 @@ export function initBooking() {
 
   // Initialize UI
   setMinDateUI(dateInput);
+  updateSubmitButtonUI(submitButton, false);
 
   // =============================
   // REAL-TIME VALIDATION
@@ -100,7 +101,7 @@ export function initBooking() {
       if (err.message.includes("unique_booking_slot")) {
         showToast(
           "This time slot is already booked. Please choose another time.",
-          "error"
+          "error",
         );
       } else if (err.message.includes("booking_not_in_past")) {
         showToast("You cannot book a past date.", "error");
