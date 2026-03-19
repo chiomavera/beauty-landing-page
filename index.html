@@ -451,7 +451,7 @@
               <option value="">Select a package</option>
               <option value="Standard">Standard</option>
               <option value="Enhanced">Enhanced</option>
-              <option value="Occasion">Special / Occasion</option>
+              <option value="Special / Occasion">Special / Occasion</option>
             </select>
             <small class="error-message" id="package-error"></small>
           </div>
@@ -565,6 +565,12 @@
 
     <script type="module" src="js/main.js"></script>
     <!-- Toast placed outside any container as the last child, so it can flaot above -->
-    <div id="booking-confirmation" class="hidden"></div>
+    <div
+      id="booking-confirmation"
+      class="hidden"
+      role="alert"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
   </body>
 </html>
