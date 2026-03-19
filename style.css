@@ -757,7 +757,7 @@ section {
   background-color: var(--bg-elevated);
   color: var(--text-primary);
 
-  transition: 
+  transition:
     border 0.2s ease,
     box-shadow 0.2s ease,
     background-color 0.2s ease;
@@ -808,7 +808,9 @@ select.valid {
   color: #e63946;
   height: 0;
   overflow: hidden;
-  transition: height 0.2s ease, margin-top 0.2s ease;
+  transition:
+    height 0.2s ease,
+    margin-top 0.2s ease;
 }
 
 .error-message.active {
@@ -897,35 +899,40 @@ select.valid {
   cursor: not-allowed;
 }
 
-
 /* =========================
    Toast Styling
 ========================= */
 #booking-confirmation {
   position: fixed;
-  top: 20px;           
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  max-width: 90%;      
-  width: 400px;        
+  max-width: 90%;
+  width: 400px;
   padding: 12px 20px;
-  background-color: #4caf50; 
+  background-color: #4caf50;
   color: white;
   border-radius: 8px;
   text-align: center;
   font-weight: 500;
   font-size: 0.95rem;
   z-index: 9999;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   opacity: 0;
   pointer-events: none;
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
   transform: translate(-50%, -50px); /* start slightly above */
 }
 
 /* Toast types */
-#booking-confirmation.success { background-color: #4caf50; }
-#booking-confirmation.error   { background-color: #f44336; }
+#booking-confirmation.success {
+  background-color: #4caf50;
+}
+#booking-confirmation.error {
+  background-color: #f44336;
+}
 
 /* Show toast */
 #booking-confirmation.show {
